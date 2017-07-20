@@ -15,8 +15,7 @@ if (command.toLowerCase() === 'add') {
   var note = notes.addNote(argv.title, argv.body)
 
   if (note) {
-    console.log(`Title: ${note.title}`)
-    console.log(`Note: ${note.body}`)
+    notes.logNotes(note)
   } else {
     console.log('Note already exists')
   }
@@ -25,8 +24,7 @@ if (command.toLowerCase() === 'add') {
     var allNotes = notes.getAll()
 
     allNotes.forEach((note) => {
-      console.log(`Title: ${note.title}`)
-      console.log(`Note: ${note.body} \n`)
+      notes.logNotes(note)
     })
 
   console.log('-----end of notes-----')
@@ -34,8 +32,11 @@ if (command.toLowerCase() === 'add') {
 } else if (command.toLowerCase() === 'read') {
     var note = notes.getNote(argv.title)
 
-    console.log(`Title: ${note[0].title}`)
-    console.log(`Note: ${note[0].body}`)
+    if (note) {
+      notes.logNotes(note)
+    } else {
+      console.log('Note doesn\'t exist')
+    }
 
 } else if (command.toLowerCase() === 'remove') {
     var note = notes.removeNote(argv.title)
