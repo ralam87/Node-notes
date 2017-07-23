@@ -1,5 +1,3 @@
-console.log('testing notes.js')
-
 const fs = require('fs')
 
 const fetchNotes = () => {
@@ -47,10 +45,11 @@ const removeNote = (title) => {
   var removedNotes = notes.filter((note) => note.title !== title)
   saveNotes(removedNotes)
 
-  return notes.length !== removedNotes.length
+  return removedNotes
 }
 
-const logNotes = (note) => {
+const logNote = (note) => {
+  debugger;
   console.log(`Title: ${note.title}`)
   console.log(`Note: ${note.body}\n`)
 }
@@ -60,5 +59,5 @@ module.exports = {
   getAll,
   getNote,
   removeNote,
-  logNotes
+  logNote
 }
