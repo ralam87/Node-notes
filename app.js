@@ -1,5 +1,3 @@
-console.log('Starting app.js')
-
 const fs = require('fs')
 const _ = require('lodash')
 const yargs = require('yargs')
@@ -60,6 +58,10 @@ if (command === 'add') {
     console.log(note ? 'Note Removed' : 'Note not found')
 }
 
-  else {
-    console.log('Command not recognised');
+    else {
+      console.log('Command not recognised');
+  }
+} catch (err) {
+  console.log(err.message)
+  console.log('ending program')
 }
