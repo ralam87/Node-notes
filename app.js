@@ -38,20 +38,20 @@ console.log('-------------')
 if (command === 'add') {
   var note = notes.addNote(argv.title, argv.body)
 
-  note ? notes.logNotes(note) : console.log('Note already exists')
+  note ? notes.logNote(note) : console.log('Note already exists')
 
 } else if (command === 'list') {
     var allNotes = notes.getAll()
 
     allNotes.forEach((note) => {
-      notes.logNotes(note)
+      notes.logNote(note)
     })
   console.log('-----end of notes-----')
 
 } else if (command === 'read') {
     var note = notes.getNote(argv.title)
 
-    note ? notes.logNotes(note) : console.log('Note doesn\'t exist')
+    note ? notes.logNote(note) : console.log('Note doesn\'t exist')
 
 } else if (command === 'remove') {
     var note = notes.removeNote(argv.title)
@@ -61,7 +61,3 @@ if (command === 'add') {
     else {
       console.log('Command not recognised');
   }
-} catch (err) {
-  console.log(err.message)
-  console.log('ending program')
-}
